@@ -12,13 +12,16 @@ instance Show Found where
   show (Match index) = "Found match at " ++ show index
   show NoMatch = "No match found!"
 
-findFirst (first : rest) = first
+
 
 findFirst :: (Eq a) => (a -> Bool) -> [a] -> Found
+
 
 ------------------------------------------------
 -- palindrome
 ------------------------------------------------
-palindrome
+
+palindrome s = s == reverse s
 
 palindrome :: [Char] -> Bool
+
