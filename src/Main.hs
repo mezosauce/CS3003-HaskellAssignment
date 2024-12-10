@@ -2,9 +2,10 @@ module Main where
 
 import HaskellAssignment
 
-unit_test :: Eq a => a -> a -> [Char]
-unit_test expected actual | expected == actual = "Pass"
-                          | otherwise = "Fail"
+unit_test :: (Eq a) => a -> a -> [Char]
+unit_test expected actual
+  | expected == actual = "Pass"
+  | otherwise = "Fail"
 
 main :: IO ()
 main = do
