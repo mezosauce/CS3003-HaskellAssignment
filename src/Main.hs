@@ -4,7 +4,7 @@ import HaskellAssignment
 
 unit_test :: (Eq a) => a -> a -> [Char]
 unit_test expected actual
-  | expected == actual = "Mine: Pass"
+  | expected == actual = "Mine:  Pass\n\n"
   | otherwise = "Fail"
 
 main :: IO ()
@@ -19,6 +19,7 @@ main = do
   putStrLn $ unit_test (Match 0) $ findFirst ((==) 11) [11, 10, 1, 9, 2, 8, 3, 7, 4, 6, 5, 11]
   putStrLn $ unit_test (Match 10) $ findFirst ((==) 11) [10, 1, 9, 2, 8, 3, 7, 4, 6, 5, 11]
   putStrLn $ unit_test (Match 2) $ findFirst (id) [False, False, True]
+
   -- Test palindrome
   putStrLn $ unit_test True $ palindrome ""
   putStrLn $ unit_test True $ palindrome "a"
