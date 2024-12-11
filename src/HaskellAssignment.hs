@@ -1,5 +1,4 @@
 module HaskellAssignment where
-import Control.Exception (NonTermination(NonTermination))
 
 data Found = Match Int | NoMatch deriving (Eq)
 
@@ -12,12 +11,13 @@ instance Show Found where
 ------------------------------------------------
 
 findFirst :: (Eq a) => (a -> Bool) -> [a] -> Found
-findFirst needle haystack = doFindFirst needle stack 0
-doFindFirst _[]_ = NoMatch
-doFindFirst needle (x:xs) index = if (needle x) then Match otherwise NoMatch
+findFirst needle haystack = doFindFirst needle haystack 0
+
+doFindFirst _ [] _ = NoMatch
+doFindFirst needle (x : xs) index = if (needle x) then Match index else doFindFirst needle xs (index + 1)
 
 ------------------------------------------------
 -- palindrome
 ------------------------------------------------
 palindrome :: [Char] -> Bool
-palindrome s = s == (rvrs s)
+palindrome s = s == (reverse s)
