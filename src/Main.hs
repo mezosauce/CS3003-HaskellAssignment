@@ -4,7 +4,7 @@ import HaskellAssignment
 
 unit_test :: (Eq a) => a -> a -> [Char]
 unit_test expected actual
-  | expected == actual = "Mine:  Pass\n"
+  | expected == actual = "Pass"
   | otherwise = "Fail"
 
 main :: IO ()
